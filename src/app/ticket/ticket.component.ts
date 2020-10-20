@@ -25,11 +25,12 @@ export class TicketComponent implements OnInit {
     'MLA',
     'BOS'
   ];
-
+  isClicked = false;
   ngOnInit(): void {
   }
 
   onSubmit(form): void {
     console.log(form.value);
+    this.isClicked = true;
   }
 }

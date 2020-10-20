@@ -56,38 +56,36 @@
   <div class="form-row">
     <div class="form-group col-md-6 mb-5">
       <label>Travel Date</label>
-      <input type="date" class="form-control" name="regdate" [(ngModel)]="model.regdate" #regdate="ngModel">
-      <div *ngIf="myForm.submitted && regdate.invalid" class="invalid-feedback">
-        <p *ngIf="arrivename.errors.required">Travel Date is required</p>
-      </div>
+      <input type="date" class="form-control" name="regdate" [(ngModel)]="model.regdate">
     </div>
 
     <div class="form-group col-md-6 mb-5">
       <label>Number of Travelers</label>
-      <input type="number" class="form-control" name="numpassage" [(ngModel)]="model.numpassage" #numpassage="ngModel">
-      <div *ngIf="myForm.submitted && numpassage.invalid" class="invalid-feedback">
-        <p *ngIf="arrivename.errors.required">Number of Travelers is required</p>
-      </div>
+      <input type="number" class="form-control" name="numpassage" [(ngModel)]="model.numpassage" #numpassage="ngModel"
+             [ngClass]="{ 'is-invalid': myForm.submitted && numpassage.invalid }" required>
     </div>
-
 
   </div>
 
-  <div class="form-row"  *ngIf="myForm.form.valid && myForm.submitted">
-    <div class="form-group col-md-4 mb-5">
+  <div class="form-row"  *ngIf="myForm.form.valid && myForm.submitted && isClicked">
+
+    <div class="form-group col-md-3 mb-5">
       <p>Departing from: {{model.deptname}}</p>
     </div>
-    <div class="form-group col-md-4 mb-5">
+    <div class="form-group col-md-3 mb-5">
       <p>Going to: {{model.arrivename}}</p>
     </div>
-    <div class="form-group col-md-4 mb-5">
+    <div class="form-group col-md-3 mb-5">
+      <p>Travel date: {{model.regdate | date:"MM/dd/yy"}}</p>
+    </div>
+    <div class="form-group col-md-3 mb-5">
       <p>Total cost: {{!model.numpassage ? 0 : model.numpassage * 150}} USD</p>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-12 mb-5">
-      <button class="btn btn-primary btn-block" type="submit">Submit</button>
+      <button class="btn btn-primary btn-block">Submit</button>
     </div>
   </div>
 
