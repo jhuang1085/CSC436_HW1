@@ -8,8 +8,8 @@ import { TicketComponent } from './ticket/ticket.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  {path: 'ticket', component: TicketComponent},
-  {path: 'about', component: AboutComponent},
+  {path: 'ticket', component: TicketComponent, pathMatch: 'full'},
+  {path: 'about', component: AboutComponent, pathMatch: 'full'},
   {path: '', redirectTo: '/about', pathMatch: 'full'}
 ];
 
