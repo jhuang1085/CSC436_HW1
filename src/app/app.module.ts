@@ -8,8 +8,8 @@ import { TicketComponent } from './ticket/ticket.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  {path: 'ticket', component: TicketComponent, pathMatch: 'full'},
-  {path: 'about', component: AboutComponent, pathMatch: 'full'},
+  {path: 'ticket', component: TicketComponent},
+  {path: 'about', component: AboutComponent},
   {path: '', redirectTo: '/about', pathMatch: 'full'}
 ];
 
@@ -25,6 +25,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
