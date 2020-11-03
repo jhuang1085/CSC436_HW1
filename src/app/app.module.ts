@@ -1,20 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TicketComponent } from './ticket/ticket.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  {path: 'ticket', component: TicketComponent},
+  {path: 'about', component: AboutComponent},
+  {path: '', redirectTo: '/about', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TicketComponent
+    TicketComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    // AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
